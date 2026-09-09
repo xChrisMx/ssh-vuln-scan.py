@@ -95,15 +95,15 @@ SCRIPT_DIR: str = os.path.dirname(os.path.abspath(__file__))
 # Same subnets in scope as the user's other sweep tools. Edit this list to
 # change scope.
 SUBNETS: List[str] = [
-    "156.141.0.0/16",
-    "156.140.0.0/16",
-    "146.208.0.0/16",
-    "141.184.0.0/16",
-    "141.183.0.0/16",
-    # "141.121.0.0/16",
-    "192.168.0.0/16",
-    "172.16.0.0/12",
-    "10.0.0.0/8",
+    "1.0.0.0/16",
+    "2.0.0.0/16",
+    "3.0.0.0/16",
+    "4.0.0.0/16",
+    "5.0.0.0/16",
+    # "6.0.0.0/16",
+    "7.0.0.0/16",
+    "8.0.0.0/12",
+    "9.0.0.0/8",
 ]
 
 DEFAULT_WORKERS = 16   # lower than quantum_readiness_spray's 30: each unit of
