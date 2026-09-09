@@ -180,6 +180,14 @@ SSH won't change on a retry, so nothing is gained by retrying that case
 specifically, but the bounded-retry-on-empty-result logic stays simple
 either way and doesn't need to special-case it.
 
+**One bad host can't take down the batch.** `nmap` failing to even write
+its `-oX` file for a given host — killed mid-write by `--host-timeout`, a
+disk hiccup, a transient permissions issue — is caught per-host rather than
+propagating out of the worker pool. Without this, a single such host
+anywhere in a run of thousands would lose every result gathered so far, not
+just that one host's. Verified by forcing exactly this failure (deleting
+the XML nmap was expected to have written) in the middle of a batch.
+
 ## Limitations
 
 **Assumes one scan run per workbook.** Every Overview formula aggregates
